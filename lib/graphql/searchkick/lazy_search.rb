@@ -35,7 +35,7 @@ module GraphQL
       def load
         return @result if defined? @result
 
-        @result = model_class.searchkick_search(query, options.merge(limit: limit_value, offset: offset_value))
+        @result = model_class.searchkick_search(query, options.merge(limit: limit_value, offset: offset_value), match: :text_start)
 
         @result
       end
